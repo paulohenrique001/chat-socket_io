@@ -28,12 +28,12 @@ input {
 button {
   width: 400px;
   height: 50px;
-  font-size: 14px;
-  background: #069;
+  font-size: 18px;
+  background: #0a67be;
   text-align: center;
   line-height: 50px;
   font-weight: bold;
-  color: #FFF;
+  color: #ffffff;
   margin-top: 10px;
 }
 
@@ -44,4 +44,20 @@ button {
   border: 1px solid #ddd;
   padding: 20px;
   overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0a67be; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #075ba8; 
 }

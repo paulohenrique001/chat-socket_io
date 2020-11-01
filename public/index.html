@@ -34,7 +34,6 @@
         socket.on('previousMessages', function(messages) {
             for (message of messages) {
                 renderMessage(message);
-                $('#msgInput').value = "";
             }
         });
 
@@ -57,11 +56,9 @@
                    message: message,
                };
 
-               // Renderiza a mensagem
                renderMessage(messageObject);
-
-               // Envia a mensagem pro socket no Back-End
                socket.emit('sendMessage', messageObject);
+               $('#msgInput').val("");
            }
         });
 
