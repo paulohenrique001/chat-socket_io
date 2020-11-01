@@ -15,7 +15,7 @@
         <form id="chat">
             <input type="text" name="username" placeholder="Digite seu usuário">
             <div class="messages"></div>
-            <input type="text" name="message" placeholder="Digite sua mensagem">
+            <input id="msgInput" type="text" name="message" placeholder="Digite sua mensagem">
             <button type="submit">Enviar</button>
             
         </form>
@@ -34,6 +34,7 @@
         socket.on('previousMessages', function(messages) {
             for (message of messages) {
                 renderMessage(message);
+                $('#msgInput').value = "";
             }
         });
 
