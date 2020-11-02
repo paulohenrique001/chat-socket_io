@@ -1,4 +1,4 @@
-# chat-example com socket.io
+# CHAT DA RAPAZIADA
 ### 0.0.1
 
 CONECTAR COM O HEROKU !apenas para novos sockets!

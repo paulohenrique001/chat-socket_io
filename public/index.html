@@ -1,6 +1,6 @@
   
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
     </head>
     <body>
         <form id="chat">
-            <label class="logo">CHAT DO PAULO</label>
+            <label class="logo">CHAT</label>
             <input id="msgAuthor" type="text" name="username" placeholder="Digite seu usuário" autocomplete="off">
             <div class="messages">
             </div>
@@ -29,13 +29,14 @@
 
         // Renderiza a mensagem na DIV
         function renderMessage(message) {
-            console.log(message.author);
             const authorChat = $('#msgAuthor').val();
+            const chatHeight = $('div.messages').height()
             if(message.author !== authorChat) {
                 $('.messages').append('<div class="msg-outher"><strong>'+ message.author +'</strong>: '+ message.message +'</div>');
             } else {
                 $('.messages').append('<div class="msg-author">' + message.message + '</div>');
             }
+            $('div.messages').scrollTop(chatHeight)
         }
 
         // Recebe as mensagens anteriores
