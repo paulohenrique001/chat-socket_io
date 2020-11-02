@@ -1,80 +1,31 @@
-  
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Chat Socket.io API</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <form id="chat">
-            <label class="logo">CHAT</label>
-            <input id="msgAuthor" type="text" name="username" placeholder="Digite seu usuário" autocomplete="off">
-            <div class="messages">
-            </div>
-            
-            <input id="msgInput" type="text" name="message" placeholder="Digite sua mensagem" autocomplete="off">
-            <button type="submit">Enviar</button>
-        </form>
-
+</head>
+<body>
+    <form class="chat">
+        <label class="logo">CHAT DA RAPAZIADA</label>
+        <input id="msgAuthor" type="text" name="username" placeholder="Digite seu usuário" autocomplete="off">
         
-        <script type="text/javascript">
-        // Conecta no servidor
-        var socket = io();
+        <div class="messages">
+            <div class="msg-outher"><strong>Paulo</strong>: Olá</div>
+            <div class="msg-author">Bom dia!</div>
+            <div class="msg-outher"><strong>Paulo</strong>: Tudo bem com você?</div>
+            <div class="msg-author">Comigo, tudo ótimo!</div>
+        </div>
 
-        // Renderiza a mensagem na DIV
-        function renderMessage(message) {
-            const authorChat = $('#msgAuthor').val();
-            const chatHeight = $('div.messages').height()
-            if(message.author !== authorChat) {
-                $('.messages').append('<div class="msg-outher"><strong>'+ message.author +'</strong>: '+ message.message +'</div>');
-            } else {
-                $('.messages').append('<div class="msg-author">' + message.message + '</div>');
-            }
-            $('div.messages').scrollTop(chatHeight)
-        }
+        <input id="msgInput" type="text" name="message" placeholder="Digite sua mensagem..." autocomplete="off">
+        <button type="submit">ENVIAR</button>
+    </form>
 
-        // Recebe as mensagens anteriores
-        socket.on('previousMessages', function(messages) {
-            for (message of messages) {
-                renderMessage(message);
-                $('div.messages').scrollTop(0)
-            }
-        });
-
-        // Recebe a Mensagem e chama o renderizador
-        socket.on('receivedMessage', function(message) {
-            const chatHeight = $('div.messages').height()
-            
-            renderMessage(message);
-            $('div.messages').scrollTop(chatHeight)
-        });
-
-        // Verifica quando é enviado uma mensagem
-        $('#chat').submit(function(event) {
-           event.preventDefault();
-           
-           var author = $('input[name=username]').val();
-
-           var message = $('input[name=message]').val();
-
-           if (author.length && message.length) {
-               var messageObject = {
-                   author: author,
-                   message: message,
-               };
-
-               renderMessage(messageObject);
-               socket.emit('sendMessage', messageObject);
-               $('#msgInput').val("");
-           }
-        });
-
-        </script>
-    </body>
+    <script src="./script.js"></script>
+</body>
 </html>

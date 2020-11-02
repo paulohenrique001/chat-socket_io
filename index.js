@@ -20,7 +20,10 @@ io.on('connection', socket => {
     socket.emit('previousMessages', messages);
 
     socket.on('sendMessage', data => {
-        messages.push(data);
+        messages.push({
+            author: data.author,
+            message: data.message
+        });
     
         socket.broadcast.emit('receivedMessage', data);
     });
