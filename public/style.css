@@ -20,8 +20,8 @@ input {
   width: 400px;
   border: 1px solid #ddd;
   height: 50px;
-  padding: 0 20px;
-  font-size: 14px;
+  padding: 0 15px;
+  font-size: 18px;
   outline: none;
 }
 
@@ -29,21 +29,35 @@ button {
   width: 400px;
   height: 50px;
   font-size: 18px;
+  margin-top: 10px;
   background: #0a67be;
   text-align: center;
   line-height: 50px;
   font-weight: bold;
   color: #ffffff;
-  margin-top: 10px;
+  outline: none;
 }
 
 .messages {
   width: 400px;
   height: 400px;
-  margin: 20px 0;
+  margin-top: 10px;
   border: 1px solid #ddd;
   padding: 20px;
   overflow: auto;
+}
+
+.logo {
+  width: 400px;
+  height: 50px;
+  font-size: 18px;
+  background: #0d6fca;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 10px;
+  outline: none;
 }
 
 ::-webkit-scrollbar {
