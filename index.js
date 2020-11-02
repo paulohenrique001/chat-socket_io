@@ -21,8 +21,11 @@ io.on('connection', socket => {
 
     socket.on('sendMessage', data => {
         messages.push({
+            photo: data.photo,
             author: data.author,
-            message: data.message
+            colorChat: data.colorChat,
+            message: data.message,
+            hora: data.hora
         });
     
         socket.broadcast.emit('receivedMessage', data);
