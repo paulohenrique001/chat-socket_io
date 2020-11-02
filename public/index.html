@@ -43,12 +43,16 @@
         socket.on('previousMessages', function(messages) {
             for (message of messages) {
                 renderMessage(message);
+                $('div.messages').scrollTop(0)
             }
         });
 
         // Recebe a Mensagem e chama o renderizador
         socket.on('receivedMessage', function(message) {
+            const chatHeight = $('div.messages').height()
+            
             renderMessage(message);
+            $('div.messages').scrollTop(chatHeight)
         });
 
         // Verifica quando é enviado uma mensagem
