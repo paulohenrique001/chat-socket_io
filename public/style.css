@@ -43,8 +43,35 @@ button {
   height: 400px;
   margin-top: 10px;
   border: 1px solid #ddd;
+  background-color: #cfcfcfe3;
   padding: 20px;
   overflow: auto;
+}
+
+.msg-outher {
+  width: 75%;
+  margin-bottom: 5px;
+  background-color: #3c3f46b9;
+  border-radius: 0 15px 15px 15px;
+  padding: 10px 5px 10px 5px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  float: left;
+}
+
+.msg-author {
+  width: 75%;
+  margin-bottom: 5px;
+  background-color: #197939a9;
+  border-radius: 15px 0 15px 15px;
+  padding: 10px 5px 10px 10px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: right;
+  float: right;
 }
 
 .logo {

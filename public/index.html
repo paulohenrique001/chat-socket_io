@@ -14,8 +14,15 @@
     <body>
         <form id="chat">
             <label class="logo">CHAT DO PAULO</label>
-            <input type="text" name="username" placeholder="Digite seu usuário" autocomplete="off">
-            <div class="messages"></div>
+            <input id="msgAuthor" type="text" name="username" placeholder="Digite seu usuário" autocomplete="off">
+            <div class="messages">
+                <div class="msg-outher"><strong>Paulo</strong>: Bom dia meu amigo!</div>
+                <div class="msg-outher"><strong>Julio</strong>: Como vai?</div>
+                <div class="msg-author">Olá! Tudo bem e com você?</div>
+                <div class="msg-outher"><strong>Julio</strong>: Comigo tudo ótimo!</div>
+                <div class="msg-author">Olá! Tudo bem e com você? Olá! Tudo bem e com você? Olá! Tudo bem e com você? Olá! Tudo bem e com você? Olá! Tudo bem e com você? Olá! Tudo bem e com você? Olá! Tudo bem e com você? Olá! Tudo bem e com você? Olá! Tudo bem e com você? Olá! Tudo bem e com você? Olá! Tudo bem e com você?</div>
+            </div>
+            
             <input id="msgInput" type="text" name="message" placeholder="Digite sua mensagem" autocomplete="off">
             <button type="submit">Enviar</button>
         </form>
@@ -27,7 +34,13 @@
 
         // Renderiza a mensagem na DIV
         function renderMessage(message) {
-            $('.messages').append('<div class="message"><strong>'+ message.author +'</strong>: '+ message.message +'</div>');
+            console.log(message.author);
+            const authorChat = $('#msgAuthor').val();
+            if(message.author !== authorChat) {
+                $('.messages').append('<div class="msg-outher"><strong>'+ message.author +'</strong>: '+ message.message +'</div>');
+            } else {
+                $('.messages').append('<div class="msg-author">' + message.message + '</div>');
+            }
         }
 
         // Recebe as mensagens anteriores
