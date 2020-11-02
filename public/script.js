@@ -9,14 +9,29 @@ function getId() {
 
 function renderMessage(message) {
     const authorChat = $('#idUser').val();
-    if (message.id !== chatId) {
-        $('.messages').append('<div class="msg-outher"><strong>' + message.author + '</strong>: ' + message.message + '</div>');
+    if (message.id !== idChat) {
+        $('.messages').append('<div class="msg-outher" style="background-color: ' + message.colorChat + ';"><strong>' + message.author + '</strong>: ' + message.message + '</div>');
     } else {
-        $('.messages').append('<div class="msg-author">' + message.message + '</div>');
+        $('.messages').append('<div class="msg-author" style="background-color: ' + message.colorChat + ';">' + message.message + '</div>');
     }
 }
 
-const chatId = getId();
+const months = [
+    "#ff9933", //Laranja
+    "#33cc33", //Verde
+    "#ff00ff", //Rosa
+    "#669999", //Azul Escuro
+    "#6600ff", //Roxo
+    "#0000ff", //Azul Forte
+    "#ff5050", //Vermelho
+    "#336600" //Verde Soldado
+];
+
+const random = Math.floor(Math.random() * months.length);
+
+const idChat = getId();
+const colorChat = months[random];
+console.log(colorChat);
 
 socket.on('previousMessages', function (messages) {
     for (message of messages) {
@@ -35,16 +50,15 @@ socket.on('receivedMessage', function (message) {
 
 $('.chat').submit(function (event) {
     event.preventDefault();
-    const handleGetId = chatId;
+    const handleGetId = idChat;
 
     if (handleGetId === '') {
         const idTemp = getId();
-        chatId = idTemp;
+        idChat = idTemp;
         handleGetId = idTemp;
     } else {
         console.log('HandleGetId: OK');
     }
-
 
     var author = $('input[name=username]').val();
     var message = $('input[name=message]').val();
@@ -53,6 +67,7 @@ $('.chat').submit(function (event) {
         var messageObject = {
             id: handleGetId,
             author: author,
+            colorChat: colorChat,
             message: message,
         };
 

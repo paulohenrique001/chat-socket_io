@@ -6,6 +6,7 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* padding: 0 10px; */
 }
 
 input {
@@ -57,29 +58,53 @@ button {
   overflow: auto;
 }
 
-.msg-author {
+.message {
   width: 75%;
-  margin-bottom: 5px;
-  background-color: #461979a9;
-  border-radius: 15px 0 15px 15px;
-  padding: 10px 5px 10px 10px;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: right;
   float: right;
+  text-align: right;
+  font-weight: bolder;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  background-color: #7d0bda;
+  border-radius: 20px 0px 20px 20px;
+  padding: 10px;
+  margin: 10px 0;
+}
+  .m-outher {
+    float: left;
+    text-align: left;
+    border: 3px solid #ffffff;
+    background-color: #226d3b;
+    border-radius: 0px 20px 20px 20px;
+  }
+  
+.message::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
-.msg-outher {
-  width: 75%;
-  margin-bottom: 5px;
-  background-color: #302c38d5;
-  border-radius: 0 15px 15px 15px;
-  padding: 10px 5px 10px 5px;
+.avata {
+  float: right;
+  max-width: 40px;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 0;
+  border-radius: 50%;
+}
+
+  .a-outher {
+    float: left;
+    margin-left: 0px;
+    margin-right: 10px;
+  }
+
+.time {
+  float: right;
   color: #ffffff;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: left;
+}
+
+.t-left {
   float: left;
 }
 
