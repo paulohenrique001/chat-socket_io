@@ -1,6 +1,5 @@
 html, body {
   height: 100%;
-  width: 100%;
 }
 
 * {
@@ -10,7 +9,7 @@ html, body {
 }
 
 input {
-  width: 450px;
+  width: 60%;
   border: 2px solid #908f8f;
   height: 50px;
   padding: 0 15px;
@@ -19,7 +18,7 @@ input {
 }
 
 button {
-  width: 450px;
+  width: 60%;
   height: 50px;
   font-size: 18px;
   background: #35ac70;
@@ -39,7 +38,7 @@ button {
 }
 
 .logo {
-  width: 450px;
+  width: 60%;
   height: 50px;
   background: #35ac70;
   color: #ffffff;
@@ -50,7 +49,7 @@ button {
 }
 
 .messages {
-  width: 450px;
+  width: 60%;
   height: 400px;
   border: 1px solid #ddd;
   background-color: #cfcfcfe3;
@@ -82,6 +81,31 @@ button {
   font-weight: bold;
   text-align: left;
   float: left;
+}
+
+@media only screen and (max-width: 500px) {
+  input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .chat {
+    width: 100%;
+    justify-content: unset;
+    overflow: hidden;
+  }
+
+  .messages {
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo {
+    width: 100%;
+  }
 }
 
 ::-webkit-scrollbar {
